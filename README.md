@@ -1,7 +1,7 @@
-#  Task Manager
+#  TaskMananger(Best Book Buddies)
 
 A MERN application for basic tasks management.
-![image](https://user-images.githubusercontent.com/86913048/227101123-f8a35258-9c21-4479-86e8-055659ab75e2.png)
+
 
 
 ## Features
@@ -35,48 +35,36 @@ Following are the major dependencies of the project:
 
 - axios
 - react
-- react-dom
 - react-redux
 - react-router-dom
-- redux
-- redux-thunk
 - bcrypt
-- cors
 - dotenv
 - express
 - jsonwebtoken
 - mongoose
 
-## Dev-dependencies
 
-Following are the major dev-dependencies of the project:
-
-- nodemon
-- concurrently
-
-## Prerequisites
-
-- Node.js must be installed on the system.
-- You should have a MongoDB database.
-- You should have a code editor (preferred: VS Code)
 
 ## Installation and Setup
 
-1. Install all the dependencies
+### Note: Node.js Must be installed in the system
 
-   ```sh
-   npm run install-all
-   ```
+To run this application locally, follow these steps:
 
-2. Create a file named ".env" inside the backend folder. Add data from .env.example file and substitute your credentials there.
+1. Clone this repository.
+2. Navigate to the project directory.
 
-3. Start the application
+Inside frontend folder:
 
-   ```sh
-   npm run dev
-   ```
+- `npm install`: Installs all the dependencies
+- `npm start`: Starts frontend in development mode
+- `npm run build`: Builds the frontend for production to the build folder
 
-4. Go to http://localhost:3000
+Inside backend folder:
+
+- `npm install`: Installs all the dependencies
+- `npm run dev`: Starts backend using nodemon.
+- `npm start`: Starts backend without nodemon.
 
 ## Backend API
 
@@ -101,17 +89,20 @@ Following are the major dev-dependencies of the project:
 - /tasks/:taskId    Edit a task
 </pre>
 
-## npm scripts
 
-Inside frontend folder:
+### Deployment
+- Frontend:[Frontend](https://books-task-manager.vercel.app/).
+- Backend: [Backend](https://task-mangement-backend-1.onrender.com).
 
-- `npm install`: Installs all the dependencies
-- `npm start`: Starts frontend in development mode
-- `npm run build`: Builds the frontend for production to the build folder
+## ScreenShots
 
-Inside backend folder:
 
-- `npm install`: Installs all the dependencies
-- `npm run dev`: Starts backend using nodemon.
-- `npm start`: Starts backend without nodemon.
+![Screenshot 2024-04-23 184816](https://github.com/sanju01sahu/books-task-manager/assets/77436131/471f24b2-5068-40f5-9fd6-96b22c6e736f)
+![Screenshot 2024-04-23 184833](https://github.com/sanju01sahu/books-task-manager/assets/77436131/ad47c713-2a90-43e9-929a-71aec5196c69)
+![Screenshot 2024-04-23 184839](https://github.com/sanju01sahu/books-task-manager/assets/77436131/57927bb2-aff6-4e6c-ab43-047c73dc503b)
+![Screenshot 2024-04-23 184856](https://github.com/sanju01sahu/books-task-manager/assets/77436131/a117e965-4d8f-4905-b60a-397b5c78528a)
+![Screenshot 2024-04-23 184906](https://github.com/sanju01sahu/books-task-manager/assets/77436131/7f8a0585-69c4-402f-aed5-e16b10c0eb4b)
+![Screenshot 2024-04-23 184910](https://github.com/sanju01sahu/books-task-manager/assets/77436131/85cecbad-92a3-404c-8e15-999c9159e976)
+![Screenshot 2024-04-23 184925](https://github.com/sanju01sahu/books-task-manager/assets/77436131/62fcfc53-34e9-48d3-a637-e620cf8a6e82)
+
 
