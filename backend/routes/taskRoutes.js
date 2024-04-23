@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getTasks, getTask, postTask, putTask, deleteTask } = require("../controllers/taskControllers");
+const { getTasks, getTask, postTask, putTask, deleteTask } = require("../controllers/taskControllers.js");
 const { verifyAccessToken } = require("../middlewares.js");
 
 // Routes beginning with /api/tasks
