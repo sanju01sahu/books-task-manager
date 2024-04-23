@@ -20,13 +20,13 @@ A MERN application for basic tasks management.
 ## Tools and Technologies
 
 - HTML
-- CSS
 - Javascript
+- Redux
+- React
+- CSS
 - Tailwind CSS
 - Node.js
 - Express.js
-- React
-- Redux
 - Mongodb
 
 ## Dependencies
@@ -38,7 +38,6 @@ Following are the major dependencies of the project:
 - react-dom
 - react-redux
 - react-router-dom
-- react-toastify
 - redux
 - redux-thunk
 - bcrypt
