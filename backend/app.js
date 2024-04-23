@@ -8,6 +8,7 @@ const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
+
 app.use(express.json());
 app.use(cors());
 
@@ -16,6 +17,10 @@ mongoose.connect(mongoUrl, err => {
   if (err) throw err;
   console.log("Mongodb connected...");
 });
+
+app.use("/", (req,res)=>{
+  res.send("Hello")
+})
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
