@@ -1,8 +1,13 @@
 const express = require("express");
 const { authenticateUser } = require("../middlewares/auth.middleware");
-
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const TaskModel = require("../models/task.model");
+const errorHandler = require("../middlewares/error.middleware");
 const router = express.Router();
+
 // Routes beginning with /api/tasks
+
 router.get("/", authenticateUser, async (req, res) => {
   try {
     const tasks = await TaskModel.find({ user: req.user.id });
@@ -59,7 +64,7 @@ router.post("/", authenticateUser, async (req, res) => {
 
 router.put("/:taskId", authenticateUser, async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, status } = req.body;
     if (!description) {
       return res
         .status(400)
@@ -68,7 +73,7 @@ router.put("/:taskId", authenticateUser, async (req, res) => {
 
     task = await TaskModel.findByIdAndUpdate(
       req.params.taskId,
-      { description },
+      { description, status },
       { new: true }
     );
     res
