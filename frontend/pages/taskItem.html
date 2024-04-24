@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <h1>Task Manager</h1>
+        </div>
+        <div>
+            
+            <a id="logoutBtn" href="../index.html">Logout</a>
+        </div>
+    </nav>
+    <section class="primarySection" >
+        <form id="addItem">
+            <input id="taskDescription" class="input" type="text" placeholder="Task Title" name="description">
+            <button class="button-6" id="taskSubmit" type="submit" >Add Task</button>
+        </form>
+        <span class="filterBox">
+            <h3>Filter By Status</h3>
+            <select name="" id="filter">
+                <option value="">All</option>
+                <option value="todo">To Do</option>
+                <option value="in-progress">In-Progress</option>
+                <option value="done">Done</option>
+            </select>
+        </span>        
+
+    </section>
+    <section>
+        
+        <div id="taskList">
+
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="../index.js"></script>
+<script src="../scripts/taskItem.js"></script>
+</html>
