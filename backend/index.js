@@ -23,7 +23,7 @@ mongoose
     console.error("Error connecting to MongoDB:", err);
   });
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("server is working");
 });
 
