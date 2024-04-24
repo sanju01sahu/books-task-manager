@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Routes beginning with /tasks/
 
-router.get("/", authenticateUser, async (req, res) => {
+router.get("/get", authenticateUser, async (req, res) => {
   try {
     const tasks = await TaskModel.find({ user: req.user.id });
     res
@@ -22,7 +22,7 @@ router.get("/", authenticateUser, async (req, res) => {
   }
 });
 
-router.get("/:taskId", authenticateUser, async (req, res) => {
+router.get("/getsingle/:taskId", authenticateUser, async (req, res) => {
   try {
     const task = await TaskModel.findOne({
       user: req.user.id,
@@ -73,7 +73,7 @@ router.get("/search", authenticateUser, async (req, res) => {
   }
 });
 
-router.post("/", authenticateUser, async (req, res) => {
+router.post("/post", authenticateUser, async (req, res) => {
   try {
     const { description } = req.body;
     if (!description) {
@@ -93,7 +93,7 @@ router.post("/", authenticateUser, async (req, res) => {
   }
 });
 
-router.put("/:taskId", authenticateUser, async (req, res) => {
+router.put("/put/:taskId", authenticateUser, async (req, res) => {
   try {
     const { description, status } = req.body;
     if (!description) {
@@ -118,7 +118,7 @@ router.put("/:taskId", authenticateUser, async (req, res) => {
   }
 });
 
-router.delete("/:taskId", authenticateUser, async (req, res) => {
+router.delete("/delete/:taskId", authenticateUser, async (req, res) => {
   try {
     await TaskModel.findByIdAndDelete(req.params.taskId);
     res.status(200).json({ status: true, msg: "Task deleted successfully.." });
