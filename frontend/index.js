@@ -163,7 +163,7 @@ function editTask(task) {
   saveBtn.classList.add("button-6");
   saveBtn.addEventListener("click", () => {
     console.log();
-    putTask(task._id, descriptionInput.value, statusInput.value);
+    putTask(task._id, descriptionInput.value, statusInput.value, deadlineInput.value);
   });
 
   const cancelBtn = document.createElement("button");
