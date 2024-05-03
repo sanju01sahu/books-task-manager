@@ -4,7 +4,7 @@ const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
 const userId = user?._id;
 
-async function getTasks(status="") {
+async function getTasks(status = "") {
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
 
@@ -56,7 +56,7 @@ function renderTasks(tasks) {
     }
 
     const deadline = document.createElement("p");
-    deadline.textContent = `Deadline: ${task.status}`;
+    deadline.textContent = `Deadline: ${task.deadline}`;
 
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
@@ -79,13 +79,14 @@ function renderTasks(tasks) {
 }
 
 function postTask(description, deadline) {
+  // console.log(deadline)
   fetch(`${baseUrl}/task/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
     },
-    body: JSON.stringify({ description,deadline }),
+    body: JSON.stringify({ description, deadline }),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -103,7 +104,12 @@ function postTask(description, deadline) {
 
 function putTask(taskId, newDescription, newStatus, newDeadline) {
   const token = localStorage.getItem("token");
-  const updatedTask = {user:userId, description: newDescription, status: newStatus, deadline:newDeadline };
+  const updatedTask = {
+    user: userId,
+    description: newDescription,
+    status: newStatus,
+    deadline: newDeadline,
+  };
 
   fetch(`${baseUrl}/task/${taskId}`, {
     method: "PUT",
@@ -148,6 +154,10 @@ function editTask(task) {
         }>Done</option>
     `;
 
+  const deadlineInput = document.createElement("input");
+  deadlineInput.type = "datetime-local";
+  deadlineInput.value = task.deadline;
+
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save";
   saveBtn.classList.add("button-6");
@@ -163,6 +173,7 @@ function editTask(task) {
 
   taskItem.appendChild(descriptionInput);
   taskItem.appendChild(statusInput);
+  taskItem.appendChild(deadlineInput);
   taskItem.appendChild(saveBtn);
   taskItem.appendChild(cancelBtn);
 

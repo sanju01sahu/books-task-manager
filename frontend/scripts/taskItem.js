@@ -24,12 +24,13 @@ addItemForm.addEventListener("submit", (e)=>{
     const taskDescription = document.getElementById("taskDescription").value;
     const deadline = document.getElementById('deadline').value;
     const currentDateTime = new Date().toISOString().slice(0, 16);
+    console.log(deadline, typeof(deadline))
     if (deadline < currentDateTime) {
       alert('Deadline cannot be before the current time and date.');
       e.preventDefault(); // Prevent form submission
       return;
   }else{
-    postTask(taskDescription)
+    postTask(taskDescription, deadline)
   }
     // console.log(taskDescription)
 });
