@@ -55,6 +55,9 @@ function renderTasks(tasks) {
       status.style.color = "blue";
     }
 
+    const deadline = document.createElement("p");
+    deadline.textContent = `Deadline: ${task.status}`;
+
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
     editBtn.classList.add("button-6");
@@ -67,6 +70,7 @@ function renderTasks(tasks) {
 
     taskItem.appendChild(description);
     taskItem.appendChild(status);
+    taskItem.appendChild(deadline);
     taskItem.appendChild(editBtn);
     taskItem.appendChild(deleteBtn);
 
@@ -74,14 +78,14 @@ function renderTasks(tasks) {
   });
 }
 
-function postTask(description) {
+function postTask(description, deadline) {
   fetch(`${baseUrl}/task/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
     },
-    body: JSON.stringify({ description }),
+    body: JSON.stringify({ description,deadline }),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -97,9 +101,9 @@ function postTask(description) {
     });
 }
 
-function putTask(taskId, newDescription, newStatus) {
+function putTask(taskId, newDescription, newStatus, newDeadline) {
   const token = localStorage.getItem("token");
-  const updatedTask = { description: newDescription, status: newStatus };
+  const updatedTask = {user:userId, description: newDescription, status: newStatus, deadline:newDeadline };
 
   fetch(`${baseUrl}/task/${taskId}`, {
     method: "PUT",

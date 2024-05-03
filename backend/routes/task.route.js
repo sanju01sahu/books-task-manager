@@ -75,13 +75,13 @@ router.get("/search", authenticateUser, async (req, res) => {
 
 router.post("/post", authenticateUser, async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, deadline } = req.body;
     if (!description) {
       return res
         .status(400)
         .json({ status: false, msg: "Description of task not found" });
     }
-    const task = await TaskModel.create({ user: req.user.id, description });
+    const task = await TaskModel.create({ user: req.user.id, description, deadline });
     res
       .status(200)
       .json({ task, status: true, msg: "Task created successfully.." });

@@ -22,8 +22,16 @@ window.addEventListener("load", () => {
 addItemForm.addEventListener("submit", (e)=>{
     e.preventDefault();
     const taskDescription = document.getElementById("taskDescription").value;
-    // console.log(taskDescription)
+    const deadline = document.getElementById('deadline').value;
+    const currentDateTime = new Date().toISOString().slice(0, 16);
+    if (deadline < currentDateTime) {
+      alert('Deadline cannot be before the current time and date.');
+      e.preventDefault(); // Prevent form submission
+      return;
+  }else{
     postTask(taskDescription)
+  }
+    // console.log(taskDescription)
 });
 filter.addEventListener("change", (e)=>{
   e.stopPropagation();
