@@ -17,7 +17,7 @@ const taskSchema = new mongoose.Schema(
       default: "todo",
     },
     deadline: {
-      type: Date, 
+      type: String, 
     },
   },
   {
